@@ -1,0 +1,123 @@
+// ── projetos.component.scss ───────────────────────────────────
+
+:host { display: block; }
+
+.projetos {
+  background: #0d0d0c;
+  color: var(--white);
+  padding: 100px 48px;
+}
+
+// ── Header ────────────────────────────────────────────────────
+.projetos-header {
+  text-align: center;
+  margin-bottom: 72px;
+
+  .section-tag { color: var(--gray-600); }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4vw, 50px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--gray-400);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+// ── Grid ──────────────────────────────────────────────────────
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+// ── Card ──────────────────────────────────────────────────────
+.projeto-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111110;
+  cursor: default;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-16px) scale(1.02);
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    .projeto-img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// ── Image ─────────────────────────────────────────────────────
+.projeto-img-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.projeto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+// ── Info ──────────────────────────────────────────────────────
+.projeto-info {
+  padding: 24px;
+}
+
+.projeto-tag {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+.projeto-nome {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.projeto-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 1024px) {
+  .projetos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .projetos { padding: 64px 24px; }
+  .projetos-grid { grid-template-columns: 1fr; }
+}

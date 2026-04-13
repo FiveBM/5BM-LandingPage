@@ -1,0 +1,94 @@
+@use 'sass:color';
+
+// ── Nav variables ─────────────────────────────────────────────
+$nav-height: 72px;
+$nav-bg:     rgba(10, 10, 10, 0.88);
+$nav-border: rgba(255, 255, 255, 0.06);
+
+// ── Component ─────────────────────────────────────────────────
+:host {
+  display: block;
+}
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $nav-height;
+  padding: 0 48px;
+  background: $nav-bg;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid $nav-border;
+}
+
+// ── Logo ──────────────────────────────────────────────────────
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+
+  img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+  }
+
+  span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    color: var(--white);
+    letter-spacing: 0.08em;
+  }
+}
+
+// ── Links ─────────────────────────────────────────────────────
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray-400);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color var(--ease-default);
+    position: relative;
+
+    // Underline on hover
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--white);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--white);
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// ── CTA ───────────────────────────────────────────────────────
+.nav-cta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}

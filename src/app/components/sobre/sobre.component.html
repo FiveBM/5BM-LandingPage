@@ -1,0 +1,28 @@
+<section class="sobre section-dark" id="sobre">
+  <div class="sobre-wrap reveal">
+
+    <!-- Text side -->
+    <div class="sobre-texto">
+      <p class="section-tag">Sobre a TRIAD</p>
+      <h2>Freelancers sênior,<br>resultados de agência</h2>
+      <p class="section-desc sobre-desc">
+        Somos um time enxuto de desenvolvedores e designers apaixonados
+        por tecnologia. Sem burocracia, sem rodeios — entregamos software
+        de qualidade com comunicação direta e prazo cumprido.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-item" *ngFor="let s of stats">
+          <span class="stat-valor">{{ s.valor }}</span>
+          <span class="stat-label">{{ s.label }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual side -->
+    <div class="sobre-visual">
+      <canvas #sobreCanvas></canvas>
+    </div>
+
+  </div>
+</section>

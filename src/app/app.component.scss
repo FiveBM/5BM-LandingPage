@@ -1,0 +1,12 @@
+// app.component.scss
+// Root component styles — layout shell only.
+// All design tokens and global utilities live in src/styles.scss
+
+:host {
+  display: block;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}

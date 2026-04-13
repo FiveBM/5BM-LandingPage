@@ -1,0 +1,20 @@
+<section class="processo section-mid" id="processo">
+
+  <div class="processo-header reveal">
+    <p class="section-tag">Como trabalhamos</p>
+    <h2>Do briefing ao deploy</h2>
+    <p class="section-desc">
+      Um processo transparente e colaborativo, pensado para minimizar
+      revisões e maximizar resultado.
+    </p>
+  </div>
+
+  <div class="processo-grid reveal">
+    <div class="etapa" *ngFor="let e of etapas">
+      <span class="etapa-num">{{ e.num }}</span>
+      <h3 class="etapa-titulo">{{ e.titulo }}</h3>
+      <p class="etapa-desc">{{ e.descricao }}</p>
+    </div>
+  </div>
+
+</section>

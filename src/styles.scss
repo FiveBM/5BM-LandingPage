@@ -1,1 +1,313 @@
-/* You can add global styles to this file, and also import other style files */
+// ============================================================
+// — Global Styles
+// styles.scss
+// ============================================================
+
+// ── Google Fonts ─────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+// ── Design Tokens ────────────────────────────────────────────
+:root {
+  // Colors
+  --black:     #0a0a0a;
+  --black-mid: #0d0d0c;
+  --black-soft:#111110;
+  --white:     #f5f5f3;
+  --gray-100:  #e8e8e6;
+  --gray-200:  #d0d0ce;
+  --gray-400:  #999997;
+  --gray-600:  #555553;
+  --gray-800:  #2a2a28;
+
+  // Typography
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  // Spacing scale
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+  --space-3xl: 100px;
+
+  // Border radius
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 20px;
+  --radius-full: 100px;
+
+  // Transitions
+  --ease-default: 0.2s ease;
+  --ease-bounce:  0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-reveal:  0.7s ease;
+
+  // Shadows
+  --shadow-card:  0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  --shadow-glow:  0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+// ── SCSS Variables (for use inside SCSS) ─────────────────────
+$black:     #0a0a0a;
+$black-mid: #0d0d0c;
+$black-soft:#111110;
+$white:     #f5f5f3;
+$gray-100:  #e8e8e6;
+$gray-200:  #d0d0ce;
+$gray-400:  #999997;
+$gray-600:  #555553;
+$gray-800:  #2a2a28;
+
+$font-display: 'Syne', sans-serif;
+$font-body:    'DM Sans', sans-serif;
+
+// Breakpoints
+$bp-sm:  480px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+$bp-2xl: 1536px;
+
+// ── Mixins ───────────────────────────────────────────────────
+@mixin respond-to($bp) {
+  @if $bp == sm  { @media (max-width: $bp-sm)  { @content; } }
+  @if $bp == md  { @media (max-width: $bp-md)  { @content; } }
+  @if $bp == lg  { @media (max-width: $bp-lg)  { @content; } }
+  @if $bp == xl  { @media (max-width: $bp-xl)  { @content; } }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin display-font($size: 16px, $weight: 700) {
+  font-family: $font-display;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: -0.03em;
+}
+
+@mixin body-font($size: 14px, $weight: 400) {
+  font-family: $font-body;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin section-padding {
+  padding: 100px 48px;
+
+  @include respond-to(lg) { padding: 80px 32px; }
+  @include respond-to(md) { padding: 64px 24px; }
+}
+
+@mixin card-hover {
+  transition:
+    transform var(--ease-bounce),
+    box-shadow var(--ease-default),
+    border-color var(--ease-default);
+
+  &:hover {
+    transform: translateY(-16px) scale(1.02);
+    box-shadow: var(--shadow-card);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@mixin fade-up-animation($delay: 0s) {
+  animation: fadeUp 0.8s #{$delay} ease both;
+}
+
+@mixin section-tag {
+  @include body-font(11px, 600);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $gray-400;
+  margin-bottom: 16px;
+}
+
+@mixin section-heading {
+  @include display-font(clamp(30px, 4vw, 50px), 800);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+@mixin section-desc {
+  @include body-font(15px, 300);
+  color: $gray-400;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+// ── Keyframes ────────────────────────────────────────────────
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+// ── Reset ────────────────────────────────────────────────────
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-body;
+  background: $black;
+  color: $white;
+  overflow-x: hidden;
+  
+  line-height: 1.5;
+}
+
+img, canvas, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: none;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+// ── Utility Classes ──────────────────────────────────────────
+.section-light {
+  background: $white;
+  color: $black;
+  @include section-padding;
+
+  .section-tag  { color: $gray-600; }
+  h2            { color: $black; }
+  .section-desc { color: $gray-600; }
+}
+
+.section-dark {
+  background: $black;
+  color: $white;
+  @include section-padding;
+}
+
+.section-mid {
+  background: $black-soft;
+  color: $white;
+  @include section-padding;
+}
+
+
+
+// ── Scroll Reveal ────────────────────────────────────────────
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity  var(--ease-reveal),
+    transform var(--ease-reveal);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── Shared Buttons ───────────────────────────────────────────
+.btn-ghost {
+  padding: 8px 20px;
+  @include body-font(13px, 500);
+  color: $gray-400;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  cursor: none;
+  transition: all var(--ease-default);
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    color: $white;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.btn-primary {
+  padding: 8px 20px;
+  @include body-font(13px, 500);
+  color: $black;
+  background: $white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: none;
+  transition: all var(--ease-default);
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    background: $gray-100;
+    transform: translateY(-1px);
+  }
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  @include body-font(14px, 500);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: none;
+  transition: all var(--ease-default);
+  display: inline-block;
+
+  &.primary {
+    background: $white;
+    color: $black;
+
+    &:hover {
+      background: $gray-100;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+  }
+
+  &.ghost {
+    background: transparent;
+    color: $gray-400;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    &:hover {
+      color: $white;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <!-- Logo -->
+  <a href="#" class="nav-logo">
+    <img src="logo-semfundo.png" alt="5BM logo" />
+    <span>5BM</span>
+  </a>
+
+  <!-- Links -->
+  <ul class="nav-links">
+    <li *ngFor="let link of links">
+      <a [href]="link.href">{{ link.label }}</a>
+    </li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="nav-cta">
+    <a href="#projetos" class="btn-ghost">Ver portfólio</a>
+    <a href="#contato"  class="btn-primary">Fale conosco</a>
+  </div>
+</nav>

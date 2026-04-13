@@ -1,0 +1,25 @@
+<section class="projetos" id="projetos">
+
+  <div class="projetos-header reveal">
+    <p class="section-tag">Portfólio</p>
+    <h2>Projetos que<br>nos orgulham</h2>
+    <p class="section-desc">
+      Cada projeto é construído com atenção ao detalhe,
+      foco no usuário e entrega no prazo.
+    </p>
+  </div>
+
+  <div class="projetos-grid reveal">
+    <div class="projeto-card" *ngFor="let p of projetos">
+      <div class="projeto-img-wrap">
+        <img [src]="p.imagem" [alt]="p.nome" class="projeto-img" />
+      </div>
+      <div class="projeto-info">
+        <p class="projeto-tag">{{ p.tag }}</p>
+        <h3 class="projeto-nome">{{ p.nome }}</h3>
+        <p class="projeto-desc">{{ p.descricao }}</p>
+      </div>
+    </div>
+  </div>
+
+</section>

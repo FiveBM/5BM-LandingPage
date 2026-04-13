@@ -1,0 +1,32 @@
+<footer class="footer">
+  <div class="footer-top">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="TRIAD" />
+        <span>TRIAD</span>
+      </div>
+      <p class="footer-tagline">
+        Soluções digitais para empresas que querem crescer.
+        Desenvolvimento web, mobile e sistemas personalizados.
+      </p>
+    </div>
+
+    <!-- Columns -->
+    <div class="footer-col" *ngFor="let col of colunas">
+      <h4>{{ col.titulo }}</h4>
+      <ul>
+        <li *ngFor="let link of col.links">
+          <a [href]="link.href">{{ link.label }}</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">© {{ ano }} TRIAD Soluções Digitais. Todos os direitos reservados.</span>
+    <span class="footer-copy">Feito com cuidado, entregue com precisão.</span>
+  </div>
+</footer>

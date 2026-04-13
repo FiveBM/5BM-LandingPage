@@ -1,0 +1,33 @@
+<section class="servicos section-light" id="servicos">
+
+  <!-- Header -->
+  <div class="servicos-header reveal">
+    <p class="section-tag">O que fazemos</p>
+    <h2>Tecnologia que<br>resolve problemas</h2>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="servicos-grid reveal">
+    <div class="servico-card" *ngFor="let s of servicos">
+      <span class="servico-num">{{ s.num }}</span>
+
+      <div class="servico-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" [innerHTML]="s.iconPath"></svg>
+      </div>
+
+      <h3 class="servico-titulo">{{ s.titulo }}</h3>
+      <p class="servico-desc">{{ s.descricao }}</p>
+    </div>
+  </div>
+
+  <!-- Tech stack -->
+  <p class="tech-label reveal">Tecnologias que dominamos</p>
+
+  <div class="tech-grid reveal">
+    <span
+      class="tech-chip"
+      *ngFor="let t of tecnologias"
+    >{{ t.nome }}</span>
+  </div>
+
+</section>
