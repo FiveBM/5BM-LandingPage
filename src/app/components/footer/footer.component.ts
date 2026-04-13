@@ -38,7 +38,7 @@ export class FooterComponent {
     {
       titulo: 'Contato',
       links: [
-        { label: 'contato@triaddev.com.br', href: 'mailto:contato@triaddev.com.br' },
+        { label: 'fivebm.dev@gmail.com', href: 'fivebm.dev@gmail.com' },
         { label: '(81) 9 9999-9999',        href: 'tel:5581999999999'              },
         { label: 'Recife, PE — Brasil',     href: '#'                              },
         { label: 'LinkedIn',                href: '#'                              },
