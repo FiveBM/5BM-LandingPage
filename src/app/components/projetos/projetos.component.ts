@@ -22,21 +22,21 @@ export class ProjetosComponent {
       nome: 'Toca do Sabor',
       descricao:
         'Site completo para hamburgueria artesanal com cardápio online, avaliações de clientes e botão de pedido integrado.',
-      imagem: 'assets/proj-toca-do-sabor.png',
+      imagem: 'TocadoSabor.png',
     },
     {
       tag: 'Aplicativo Mobile · Educação',
       nome: 'EDUConnect',
       descricao:
         'App mobile para escola técnica estadual com login de alunos e professores, comunicação e gestão acadêmica.',
-      imagem: 'assets/proj-educonnect.png',
+      imagem: 'EduConnect.png',
     },
     {
       tag: 'Dashboard · Broadcast / TV',
       nome: 'SquadGlobo',
       descricao:
         'Sistema de monitoramento de falhas de transmissão em tempo real para TV Globo, com clipes, filtros e painel analítico.',
-      imagem: 'assets/proj-squadglobo.png',
+      imagem: 'Horus-IA.jpeg',
     },
   ];
 }
